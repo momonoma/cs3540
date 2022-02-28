@@ -12,6 +12,7 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentSpeed = baseSpeed;
 
     }
 
@@ -21,32 +22,25 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            currentSpeed = baseSpeed * 2;
-        }
-        else
-        {
-            currentSpeed = baseSpeed;
-        }
         controlPlayer();
-
     }
 
     void controlPlayer()
     {
+
+
         float verticalMove = Input.GetAxis("Vertical");
         float horizontalMove = Input.GetAxis("Horizontal");
         Vector3 movement = new Vector3(horizontalMove, 0.0f, verticalMove);
-        rb.AddForce(movement * currentSpeed);
 
-        if (Input.GetAxis("Jump") == 1)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (transform.position.y < 2f)
-            {
-                Vector3 jump = new Vector3(0, jumpAmount, 0);
-                rb.AddForce(jump, ForceMode.Impulse);
-            }
+            rb.AddForce(movement * currentSpeed, ForceMode.Impulse);
+        }
+        else
+        {
+            rb.velocity = movement * currentSpeed;
+
         }
     }
 
@@ -54,6 +48,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            FindObjectOfType<LevelManager>().LevelLost();
             Destroy(gameObject);
         }
     }
