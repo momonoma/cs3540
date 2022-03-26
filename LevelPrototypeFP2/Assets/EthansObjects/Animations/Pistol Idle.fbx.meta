@@ -41,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
+      name: mixamo.com (1)
+      takeName: mixamo.com
       internalID: 0
-      firstFrame: 1
-      lastFrame: 24
+      firstFrame: 0
+      lastFrame: 249
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
