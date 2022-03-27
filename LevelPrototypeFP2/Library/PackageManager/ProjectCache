@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637839305342371012
-    m_Hash: 1614426527
+      ticks: 637839553810910880
+    m_Hash: 3432694855
   m_LockFileStatus:
     m_FilePath: F:/+CODE/+UNITY/FP/cs3540/LevelPrototypeFP2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637839305342380997
-    m_Hash: 1105924910
+      ticks: 637839553811076018
+    m_Hash: 3981448529
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -76,12 +76,14 @@ m_PackageAssets:
         - 1.14.9
         - 1.14.12
         - 1.14.13
+        - 1.14.15
         - 1.15.1
         - 1.15.4
         - 1.15.7
         - 1.15.9
         - 1.15.12
         - 1.15.13
+        - 1.15.15
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -97,6 +99,7 @@ m_PackageAssets:
         - 1.15.9
         - 1.15.12
         - 1.15.13
+        - 1.15.15
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -107,7 +110,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.15.13
+        verified: 1.15.15
       dependencies:
       - name: com.unity.nuget.newtonsoft-json
         version: 2.0.0
@@ -204,6 +207,7 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
+        - 3.0.13
         compatible:
         - 1.0.2
         - 1.0.6
@@ -233,6 +237,7 @@ m_PackageAssets:
         - 3.0.9
         - 3.0.10
         - 3.0.12
+        - 3.0.13
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -1061,6 +1066,87 @@ m_PackageAssets:
       isAssetStorePackage: 0
       datePublishedTicks: 0
       documentationUrl: 
+      hasRepository: 0
+      repository:
+        type: 
+        url: 
+        revision: 
+        path: 
+    - packageId: dev.yarnspinner.unity@2.1.0
+      testable: 0
+      isDirectDependency: 1
+      version: 2.1.0
+      source: 1
+      resolvedPath: F:\+CODE\+UNITY\FP\cs3540\LevelPrototypeFP2\Library\PackageCache\dev.yarnspinner.unity@2.1.0
+      assetPath: Packages/dev.yarnspinner.unity
+      name: dev.yarnspinner.unity
+      displayName: Yarn Spinner
+      author:
+        name: Secret Lab
+        email: 
+        url: https://yarnspinner.dev
+      category: 
+      type: tool
+      description: Yarn Spinner is the friendly tool for interactive conversations.
+        Write your dialogue in a simple programming language that's designed to be
+        straightforward for writers and powerful for programmers, and then attach
+        it to your scenes to power your conversations.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.2.2
+        - 1.2.4
+        - 1.2.5
+        - 1.2.6
+        - 1.2.7
+        - 2.0.0-preview
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        - 2.1.0
+        compatible:
+        - 1.2.2
+        - 1.2.4
+        - 1.2.5
+        - 1.2.6
+        - 1.2.7
+        - 2.0.0-preview
+        - 2.0.0
+        - 2.0.1
+        - 2.0.2
+        - 2.1.0
+        verified: 
+      dependencies:
+      - name: com.unity.textmeshpro
+        version: 1.4.1
+      resolvedDependencies:
+      - name: com.unity.textmeshpro
+        version: 3.0.6
+      - name: com.unity.ugui
+        version: 1.0.0
+      - name: com.unity.modules.ui
+        version: 1.0.0
+      - name: com.unity.modules.imgui
+        version: 1.0.0
+      keywords:
+      - Dialogue
+      - Yarn
+      registry:
+        id: scoped:OpenUPM
+        name: OpenUPM
+        url: https://package.openupm.com
+        scopes:
+        - dev.yarnspinner
+        isDefault: 0
+        capabilities: 0
+      hasRegistry: 1
+      hideInEditor: 0
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637806775938420000
+      documentationUrl: https://docs.yarnspinner.dev/
       hasRepository: 0
       repository:
         type: 
@@ -2974,6 +3060,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         compatible:
         - 1.0.0-preview.2
         - 1.0.0-preview.3
@@ -2986,6 +3073,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         verified: 2.0.2
       dependencies: []
       resolvedDependencies: []
@@ -3042,6 +3130,7 @@ m_PackageAssets:
         - 1.1.0-pre.11
         - 1.1.0-pre.41
         - 1.1.0-pre.69
+        - 1.2.0
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -3051,6 +3140,7 @@ m_PackageAssets:
         - 1.1.0-pre.11
         - 1.1.0-pre.41
         - 1.1.0-pre.69
+        - 1.2.0
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest
