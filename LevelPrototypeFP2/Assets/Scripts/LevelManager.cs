@@ -10,11 +10,13 @@ public class LevelManager : MonoBehaviour
     public static bool isGameOver = false;
     public static bool enemiesDead = false;
     public static bool bossDead = false;
+    public static bool playerDead = false;
 
     private void Awake()
     {
         isGameOver = false;
         enemiesDead = false;
+        playerDead = false;
     }
 
     // Start is called before the first frame update
@@ -33,6 +35,16 @@ public class LevelManager : MonoBehaviour
             enemiesDead = true;
         }
 
+        if(bossDead)
+        {
+            LevelWon();
+        }
+
+        if (playerDead)
+        {
+            LevelLost();
+        }
+
     }
 
 
@@ -40,6 +52,11 @@ public class LevelManager : MonoBehaviour
     public void LevelLost()
     {
         Invoke("LoadCurrentLevel", 2);
+
+    }
+
+    public void LevelWon()
+    {
 
     }
 

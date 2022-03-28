@@ -16,11 +16,16 @@ public class SwordBehavior : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            Debug.Log("Died");
+            other.gameObject.SetActive(false);
         }
-    } 
+        if (other.CompareTag("Boss"))
+        {
+            FindObjectOfType<BossBehavior>().TakeDamage(10);
+        }
+    }
 }
