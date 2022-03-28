@@ -1931,6 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87fed24bef11654da35ec8d8757e730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warp: {fileID: 8300000, guid: a0d95f7142872d148bcfd56519a8c74f, type: 3}
 --- !u!65 &7793891635997563961
 BoxCollider:
   m_ObjectHideFlags: 0

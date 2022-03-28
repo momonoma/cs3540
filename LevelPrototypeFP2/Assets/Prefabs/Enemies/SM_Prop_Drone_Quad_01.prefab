@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   moveSpeed: 2
-  range: 0
+  range: 5
 --- !u!114 &3051308434158459646
 MonoBehaviour:
   m_ObjectHideFlags: 0

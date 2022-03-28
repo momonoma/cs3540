@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnterExitBehavior : MonoBehaviour
 {
     private bool touchingDoor = false;
+    public AudioClip warp;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +27,7 @@ public class EnterExitBehavior : MonoBehaviour
     {
         if (LevelManager.enemiesDead && touchingDoor)
         {
+            AudioSource.PlayClipAtPoint(warp, transform.position);
             FindObjectOfType<LevelManager>().LoadNextLevel();
         }
     }

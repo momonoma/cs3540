@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7c2106ce430954b8c091f215c93046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 8300000, guid: 42a9c89f9c38de8488b1c457093b370e, type: 3}
+  lose: {fileID: 8300000, guid: b7adf779be1427745860989cd423cadc, type: 3}
+  statusText: {fileID: 0}

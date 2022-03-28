@@ -44,7 +44,7 @@ void Start()
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Lose Health");
+            FindObjectOfType<PlayerBehavior>().TakeDamage(10);
         }
     }
 }

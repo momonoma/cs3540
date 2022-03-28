@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBehavior : MonoBehaviour
 {
     CharacterController _controller;
     public float moveSpeed;
     public float gravity = 9.81f;
-    public float jumpHeight = 5f;
     Vector3 input, moveDirection;
     public float airControl = 10f;
-    float RotateSpeed = 80f;
+    public Slider healthSlide;
     Animator anim;
     int playerHealth = 100;
+    public AudioClip sword;
+    public AudioClip hurt;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class PlayerBehavior : MonoBehaviour
                 if (Input.GetKey(KeyCode.E))
                 {
                     anim.SetInteger("Movement", 3);
+                    AudioSource.PlayClipAtPoint(sword, transform.position);
 
                 }
 
@@ -78,7 +81,18 @@ public class PlayerBehavior : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        playerHealth = playerHealth - dmg;
-        Debug.Log(playerHealth);
+        if(playerHealth > dmg)
+        {
+            playerHealth = playerHealth - dmg;
+            AudioSource.PlayClipAtPoint(hurt, transform.position);
+            healthSlide.value = playerHealth;
+
+        }
+        else
+        {
+            playerHealth = 0;
+            healthSlide.value = playerHealth;
+            FindObjectOfType<LevelManager>().LevelLost();
+        }
     }
 }

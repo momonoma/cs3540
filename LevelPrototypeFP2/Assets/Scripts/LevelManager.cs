@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     public static bool enemiesDead = false;
     public static bool bossDead = false;
     public static bool playerDead = false;
+    public AudioClip win;
+    public AudioClip lose;
+    public Text statusText;
 
     private void Awake()
     {
@@ -29,38 +32,48 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int enemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (enemies == 0)
+        if (!isGameOver)
         {
-            enemiesDead = true;
-        }
+            int enemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            if (enemies == 0)
+            {
+                enemiesDead = true;
+            }
 
-        if(bossDead)
-        {
-            LevelWon();
-        }
+            if (bossDead)
+            {
+                LevelWon();
+            }
 
-        if (playerDead)
-        {
-            LevelLost();
-        }
+            if (playerDead)
+            {
+                LevelLost();
+            }
 
+        }
     }
 
 
 
     public void LevelLost()
     {
-        Invoke("LoadCurrentLevel", 2);
+        setGameOverStatus("Rebooting...", lose);
+        Invoke("LoadCurrentLevel", 5);
 
     }
 
     public void LevelWon()
     {
-
+        setGameOverStatus("Level Clear!", win);
     }
 
-
+    void setGameOverStatus(string gameTextMessage, AudioClip sfx)
+    {
+        isGameOver = true;
+        AudioSource.PlayClipAtPoint(sfx, Camera.main.transform.position);
+        statusText.text = gameTextMessage;
+        statusText.enabled = true;
+    }
 
     public void LoadCurrentLevel()
     {

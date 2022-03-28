@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c4dba049ed874478b1c9fc65141a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotDeath: {fileID: 8300000, guid: ae968c3ad31f5a541a0bc4b1c02cb0a3, type: 3}
 --- !u!96 &8616847381910413906
 TrailRenderer:
   serializedVersion: 2
