@@ -7,7 +7,6 @@ public class EnemyBehavior : MonoBehaviour
     public Transform player;
     public float moveSpeed = 2.0f;
     public float range;
-    int enemyCount;
 
 // Start is called before the first frame update
 void Start()
@@ -16,7 +15,6 @@ void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
     // Update is called once per frame
@@ -26,11 +24,6 @@ void Start()
         {
             RotateEnemy();
             FollowPlayer();
-        }
-
-        if (enemyCount == 0)
-        {
-            LevelManager.enemiesDead = true;
         }
     }
 
@@ -52,11 +45,6 @@ void Start()
         if (other.CompareTag("Player"))
         {
             Debug.Log("Lose Health");
-        }
-        if (other.CompareTag("Sword"))
-        {
-            Debug.Log("Died");
-            enemyCount--;
         }
     }
 }
