@@ -7,10 +7,12 @@ public class EnemyBehavior : MonoBehaviour
     public Transform player;
     public float moveSpeed = 2.0f;
     public float range;
+    public GameObject[] enemies;
 
-    // Start is called before the first frame update
-    void Start()
+// Start is called before the first frame update
+void Start()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -24,6 +26,11 @@ public class EnemyBehavior : MonoBehaviour
         {
             RotateEnemy();
             FollowPlayer();
+        }
+
+        if (enemies.Length == 0)
+        {
+            LevelManager.enemiesDead = true;
         }
     }
 
@@ -40,13 +47,12 @@ public class EnemyBehavior : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        Debug.Log("Collided");
+        if (other.CompareTag("Player"))
         {
-            GetComponent<Animator>().SetTrigger("EnemyDestroyed");
-
-            Destroy(gameObject, 0.5f);
+            GetComponent<LevelManager>().LevelLost();
         }
     }
 }

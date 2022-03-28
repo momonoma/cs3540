@@ -4,53 +4,49 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    public float baseSpeed;
-    Rigidbody rb;
-    float jumpAmount = 2;
-    float currentSpeed;
+    CharacterController _controller;
+    public float moveSpeed;
+    public float gravity = 9.81f;
+    public float jumpHeight = 5f;
+    Vector3 input, moveDirection;
+    public float airControl = 10f;
+    private void Awake()
+    {
+        _controller = GetComponent<CharacterController>();
+    }
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        currentSpeed = baseSpeed;
+
 
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-    }
-
-    void FixedUpdate()
-    {
-        controlPlayer();
-    }
-
-    void controlPlayer()
-    {
-
-
-        float verticalMove = Input.GetAxis("Vertical");
-        float horizontalMove = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(horizontalMove, 0.0f, verticalMove);
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+        input = transform.right * moveHorizontal + transform.forward * moveVertical;
+        input *= moveSpeed;
+        if (_controller.isGrounded)
         {
-            rb.AddForce(movement * currentSpeed, ForceMode.Impulse);
+            moveDirection = input;
+            if (Input.GetButton("Jump"))
+            {
+                moveDirection.y = Mathf.Sqrt(2 * gravity * jumpHeight);
+            }
+            else
+            {
+                moveDirection.y = 0.0f;
+            }
         }
         else
         {
-            rb.velocity = movement * currentSpeed;
-
+            input.y = moveDirection.y;
+            moveDirection = Vector3.Lerp(moveDirection, input, Time.deltaTime * airControl);
         }
-    }
+        moveDirection.y -= gravity * Time.deltaTime;
+        _controller.Move(moveDirection * Time.deltaTime);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            FindObjectOfType<LevelManager>().LevelLost();
-            Destroy(gameObject);
-        }
     }
-
 }

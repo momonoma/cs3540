@@ -6,27 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    
+
     public static bool isGameOver = false;
-   
+    public static bool enemiesDead = false;
+    public static bool bossDead = false;
 
     private void Awake()
     {
         isGameOver = false;
-       
+        enemiesDead = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
 
     }
 
@@ -40,9 +40,14 @@ public class LevelManager : MonoBehaviour
 
 
 
-    void LoadCurrentLevel()
+    public void LoadCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadNextLevel()
+    {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

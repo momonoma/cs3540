@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3677913810925820027}
   - component: {fileID: 8263861801413472861}
   - component: {fileID: 3201207226298273561}
+  - component: {fileID: -1638097202484836882}
   m_Layer: 0
   m_Name: SM_Prop_Drone_02
   m_TagString: Enemy
@@ -91,7 +92,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3699814772688526779}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5917419, y: 2.1792872, z: 1.2644504}
@@ -111,3 +112,22 @@ MonoBehaviour:
   player: {fileID: 0}
   moveSpeed: 2
   range: 0
+  enemies: []
+--- !u!114 &-1638097202484836882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699814772688526779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 0.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
