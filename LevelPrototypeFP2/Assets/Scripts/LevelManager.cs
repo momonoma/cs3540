@@ -27,6 +27,11 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int enemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (enemies == 0)
+        {
+            enemiesDead = true;
+        }
 
     }
 

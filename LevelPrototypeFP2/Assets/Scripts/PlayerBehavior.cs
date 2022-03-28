@@ -10,43 +10,61 @@ public class PlayerBehavior : MonoBehaviour
     public float jumpHeight = 5f;
     Vector3 input, moveDirection;
     public float airControl = 10f;
-    private void Awake()
-    {
-        _controller = GetComponent<CharacterController>();
-    }
+    float RotateSpeed = 80f;
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-
-
+        _controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        input = transform.right * moveHorizontal + transform.forward * moveVertical;
-        input *= moveSpeed;
-        if (_controller.isGrounded)
+
+        if (moveHorizontal != 0 || moveVertical != 0)
         {
-            moveDirection = input;
-            if (Input.GetButton("Jump"))
+            if (Input.GetKey(KeyCode.E))
             {
-                moveDirection.y = Mathf.Sqrt(2 * gravity * jumpHeight);
+                anim.SetInteger("Movement", 3);
+
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetInteger("Movement", 2);
+                moveSpeed = 6;
             }
             else
             {
-                moveDirection.y = 0.0f;
+                anim.SetInteger("Movement", 1);
             }
+
+            input = new Vector3(moveHorizontal, 0, moveVertical);
+            input.Normalize();
+            moveDirection = input;
+            moveDirection.y -= gravity * Time.deltaTime;
+            _controller.Move(moveDirection * Time.deltaTime);
+            if (moveDirection != Vector3.zero)
+            {
+                transform.forward = moveDirection;
+            }
+            
         }
         else
         {
-            input.y = moveDirection.y;
-            moveDirection = Vector3.Lerp(moveDirection, input, Time.deltaTime * airControl);
+            anim.SetInteger("Movement", 0);
         }
-        moveDirection.y -= gravity * Time.deltaTime;
-        _controller.Move(moveDirection * Time.deltaTime);
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            anim.SetInteger("Movement", 3);
+
+        }
     }
 }
